@@ -1,0 +1,32 @@
+# CI: build data, train, run all tests, and enforce a quality gate on the TEST snapshot.
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+
+env:
+  RETAINIQ_ROOT: ${{ github.workspace }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements-dev.txt
+      - name: Build data and train (reproducible from seed)
+        run: |
+          python src/data_gen.py
+          python src/train.py
+      - name: Tests (leakage, API, drift, dashboard)
+        run: python -m pytest -q
+      - name: Quality gate - model must beat a floor on the TEST snapshot
+        run: |
+          python - <<'PY'
+          import json, os
+          m = json.load(open(os.environ["RETAINIQ_ROOT"] + "/artifacts/model_meta.json"))
+          pr = m["metrics"]["test"]["pr_auc"]
+          print("test pr_auc =", pr)
+          assert pr > 0.45, "Model fell below the quality gate"
+          PY

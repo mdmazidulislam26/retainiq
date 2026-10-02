@@ -1,0 +1,6 @@
+# Keep databases, test files and caches out of the image.
+*.db
+artifacts/mlflow.db
+artifacts/*.csv
+tests/
+__pycache__/

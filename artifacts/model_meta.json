@@ -1,0 +1,75 @@
+{
+  "model": "xgboost",
+  "features": [
+    "age",
+    "logins_last4w",
+    "logins_last2w",
+    "logins_prev2w",
+    "logins_last_week",
+    "logins_early_avg",
+    "login_trend",
+    "drop_vs_baseline",
+    "quiz_score_mean_4w",
+    "assignments_4w",
+    "video_minutes_4w",
+    "forum_posts_4w",
+    "weeks_since_active",
+    "plan",
+    "signup_channel"
+  ],
+  "numeric": [
+    "age",
+    "logins_last4w",
+    "logins_last2w",
+    "logins_prev2w",
+    "logins_last_week",
+    "logins_early_avg",
+    "login_trend",
+    "drop_vs_baseline",
+    "quiz_score_mean_4w",
+    "assignments_4w",
+    "video_minutes_4w",
+    "forum_posts_4w",
+    "weeks_since_active"
+  ],
+  "categorical": [
+    "plan",
+    "signup_channel"
+  ],
+  "metrics": {
+    "valid": {
+      "roc_auc": 0.8957103480283675,
+      "pr_auc": 0.6816371040205562,
+      "base_rate": 0.10562459123610203,
+      "precision_at_5": 0.8289473684210527,
+      "recall_at_5": 0.39009287925696595,
+      "lift_at_5": 7.848052794525012,
+      "precision_at_10": 0.6491803278688525,
+      "recall_at_10": 0.6130030959752322,
+      "lift_at_10": 6.14610972948282,
+      "precision_at_20": 0.4206219312602291,
+      "recall_at_20": 0.7956656346749226,
+      "lift_at_20": 3.9822348786185158,
+      "precision_at_30": 0.302071973827699,
+      "recall_at_30": 0.8575851393188855,
+      "lift_at_30": 2.859864074195367
+    },
+    "test": {
+      "roc_auc": 0.8732732203522581,
+      "pr_auc": 0.6434088241438475,
+      "base_rate": 0.10589519650655022,
+      "precision_at_5": 0.8029197080291971,
+      "recall_at_5": 0.37800687285223367,
+      "lift_at_5": 7.582210851079841,
+      "precision_at_10": 0.6277372262773723,
+      "recall_at_10": 0.5910652920962199,
+      "lift_at_10": 5.92791030175333,
+      "precision_at_20": 0.4007285974499089,
+      "recall_at_20": 0.7560137457044673,
+      "lift_at_20": 3.7841999511764595,
+      "precision_at_30": 0.29004854368932037,
+      "recall_at_30": 0.8213058419243986,
+      "lift_at_30": 2.739015113602242
+    }
+  }
+}

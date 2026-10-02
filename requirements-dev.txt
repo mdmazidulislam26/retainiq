@@ -1,0 +1,7 @@
+# Training, dashboard and test dependencies. sqlalchemy<2.1 keeps mlflow 2.19 working on a fresh install.
+-r requirements.txt
+mlflow==2.19.0
+sqlalchemy<2.1
+streamlit
+httpx
+pytest

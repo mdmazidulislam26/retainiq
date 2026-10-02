@@ -1,0 +1,10 @@
+# Runtime dependencies (used by the Docker image).
+fastapi
+uvicorn
+pydantic
+scikit-learn
+xgboost
+shap
+pandas
+numpy
+joblib

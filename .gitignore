@@ -1,0 +1,6 @@
+# Keep databases, MLflow runs and caches out of git.
+*.db
+artifacts/mlflow.db
+mlruns/
+__pycache__/
+.pytest_cache/

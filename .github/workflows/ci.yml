@@ -30,3 +30,14 @@ jobs:
           print("test pr_auc =", pr)
           assert pr > 0.45, "Model fell below the quality gate"
           PY
+      - name: Build Docker image
+        run: docker build -t retainiq .
+      - name: Run container and check /health
+        run: |
+          docker run -d --name api -p 8000:8000 retainiq
+          for i in $(seq 1 20); do
+            curl -fs http://localhost:8000/health && exit 0
+            sleep 3
+          done
+          docker logs api
+          exit 1

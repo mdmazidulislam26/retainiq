@@ -75,7 +75,7 @@ SHAP explains the **model**, not the real cause of churn.
 - The same student appears in several snapshots (train, valid and test), so splits are temporal, not by student.
 - The model file must be loaded with the **same scikit-learn version it was trained with** (a model trained on one version fails to load on another). Retrain in the serving environment.
 - The model file is stored in the repo for the demo; production would use a model registry (e.g. MLflow).
-- The Dockerfile and the GitHub Actions workflow are included but were not run end to end.
+- The GitHub Actions workflow runs the 11 tests on every push (passing). The Dockerfile has not been built end to end.
 - No automated retraining or alerting on drift.
 
 ## Project layout

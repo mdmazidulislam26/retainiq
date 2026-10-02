@@ -1,3 +1,4 @@
+![ci](https://github.com/mdmazidulislam26/retainiq/actions/workflows/ci.yml/badge.svg)
 # RetainIQ: student churn prediction for an EdTech platform
 
 A retention team can contact only a limited share of students each week (here: 10%). RetainIQ ranks active students by churn risk, explains the main driver for each one, and flags when the input data drifts, so the team calls the right people first.

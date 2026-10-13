@@ -3,7 +3,24 @@
 
 A retention team can contact only a limited share of students each week (here: 10%). RetainIQ ranks active students by churn risk, explains the main driver for each one, and flags when the input data drifts, so the team calls the right people first.
 
-The goal of this project is the engineering around the model: leakage-safe features, an honest time-based evaluation, capacity-aware metrics, an explanation API, a worklist dashboard and drift monitoring.
+## System Loop
+
+```mermaid
+flowchart LR
+    A["Data<br/>SQL snapshot features"] --> B["Predict<br/>Daily risk score"]
+    B --> C["Explain<br/>SHAP top reasons"]
+    C --> D["Intervene<br/>Mentor, email, call"]
+    D --> E["Measure<br/>Did student return?"]
+    E --> F["Retrain<br/>PSI drift triggers it"]
+    F --> A
+
+    classDef model fill:#E1F5EE,stroke:#0F6E56,color:#085041
+    classDef action fill:#FAECE7,stroke:#993C1D,color:#712B13
+    class A,B,C,F model
+    class D,E action
+```
+
+> RetainIQ is not just a model; it's a closed-loop system where every prediction is explained, acted upon, measured, and fed back into retraining.
 
 > The data is **synthetic**: a hidden "engagement" level drives both student behaviour and churn. The results show the pipeline works as designed, not real-world accuracy.
 

@@ -20,7 +20,7 @@ flowchart LR
     class D,E action
 ```
 
-> RetainIQ is not just a model; it's a closed-loop system where every prediction is explained, acted upon, measured, and fed back into retraining.
+RetainIQ is not just a model; it's a closed-loop system where every prediction is explained, acted upon, measured, and fed back into retraining.
 
 > The data is **synthetic**: a hidden "engagement" level drives both student behaviour and churn. The results show the pipeline works as designed, not real-world accuracy.
 
